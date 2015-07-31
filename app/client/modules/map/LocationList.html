@@ -1,0 +1,51 @@
+<template name="locationList">
+    <div class="ui top  attached menu">
+        <div class="header item">State List</div>
+        <div class="ui simple dropdown item">
+            <i class="search icon"></i>
+            <div class="menu">
+                <div class="item">
+                    <div class="ui icon transparent input ">
+                        <i class="search icon"></i>
+                        <input class="location-search" type="text" placeholder="Search location...">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="close-modal right floated icon link item">
+            <i class="remove icon"></i>
+        </a>
+    </div>
+    <div class="ui very padded bottom attached centered segment">
+        <div class="ui four link stackable cards">
+                {{#each locations}}
+                   {{#with this}}
+                       {{>locationItem}}
+                   {{/with}}
+                {{/each}}
+            </div>
+    </div>
+</template>
+
+<Template name="locationItem">
+    <a href="#" class="card-detail ui fluid inverted green card">
+        <div class="content">
+            <div class="right floated">
+                <div class="meta">25 LGA's</div>
+            </div>
+            <h3 class="header">
+                {{child}}
+            </h3>
+            <div class="description">Total:{{total}}</div>
+        </div>
+        <div class="extra content">
+            <div class="right floated meta">
+                <i class="large female icon "></i><span class="text">{{female}}</span>
+            </div>
+            <div class="meta">
+                <i class="large male icon "></i><span class="text">{{male}}</span>
+            </div>
+        </div>
+    </a>
+</Template>

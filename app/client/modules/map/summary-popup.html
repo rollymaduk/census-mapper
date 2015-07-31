@@ -1,0 +1,21 @@
+<template name="summary_popup">
+    {{#with summary}}
+    <div class="ui stackable  green card" >
+        <div class="content">
+            <h2 class="header">{{child}}</h2>
+            <div class="meta">Total:{{total}}</div>
+            <div class="left floated">
+                <i class="large male icon"></i><span class="description">{{male}}</span>
+            </div>
+            <div class="right floated">
+                <i class="large female icon"></i><span class="description">{{female}}</span>
+            </div>
+
+        </div>
+        <div class="ui bottom  attached green button">
+            view more
+        </div>
+    </div>
+    {{/with}}
+
+</template>
