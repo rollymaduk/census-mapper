@@ -11,7 +11,6 @@ accounts-password
 aldeed:collection2
 iron:router
 raix:handlebar-helpers
-matteodem:easy-security
 audit-argument-checks
 fastclick
 zimme:iron-router-active
@@ -30,5 +29,9 @@ meteorhacks:aggregate
 matb33:collection-hooks
 rollypolly:csswarp
 pauloborges:mapbox
-richsilv:semantic-ui-modal
 reactive-var
+richsilv:semantic-ui-modal
+mfpierre:chartist-js
+bshamblen:morrisjs
+rollypolly:morris-charts
+stfnbrgh:nested-collection-helpers

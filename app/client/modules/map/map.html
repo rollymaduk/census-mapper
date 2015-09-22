@@ -1,11 +1,14 @@
 <template name="map">
     <div id="map"  style="position:absolute; top:0; bottom:0; width:100%;">
     </div>
-    <div class="ui compact vertical icon menu" style="position: absolute;left:2%;top:2%">
+    <div class="ui compact vertical icon menu " style="position: absolute;left:2%;top:2%">
        <div class="ui locationList link item">
-           <i class="list layout icon"></i>
+           <div class="ui  inverted dimmer">
+               <div class="ui small loader"></div>
+           </div>
+           <i class="list layout icon "></i>
        </div>
-        <div class="ui  dropdown item">
+        <div class="ui dropdown item">
             <i class="search icon"></i>
             <div class=" menu"  id="map-search">
                     <div class="ui icon transparent search input ">

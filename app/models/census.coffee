@@ -34,3 +34,7 @@ root.census.allow(
 )
 
 
+root.census.helpers
+  'properties.id':(hc)->
+    hc.nestedHelperContext.parentDocument._id
+

@@ -1,8 +1,8 @@
-
 Template.map.rendered=->
-  @autorun ()->
+  @selectedYear=new ReactiveVar(census.findOne().properties.year)
+  @autorun ()=>
     if (Mapbox.loaded())
-      data=census.find().fetch()
+      data=census.find({'properties.year':@selectedYear.get()}).fetch()
       L.mapbox.accessToken = "pk.eyJ1Ijoicm9sbHlwb2xseSIsImEiOiI2NmI4NGE2Njk4NjAyNTkwZGUzZDgxMjdjODg3N2M1MyJ9.wjeMwid5pElStcuJh9nfBQ";
       map = L.mapbox.map('map','rollypolly.b342ebdf',{zoomControl:false});
       center=null
@@ -58,13 +58,17 @@ getIcon=(feature,radius)->
   L.divIcon({className:"outer_circle",html: "<div class=' #{feature._id} inner_circle'></div>
 <div style='margin-top:110%;margin-right:80%;' class='ui pointing label'>#{feature.properties.child}</div>",iconSize:[radius, radius]})
 
-Template.map.created=->
 
 Template.map.events
   'click .locationList':(evt,temp)->
-    console.log 'list clicked'
-    SemanticModal.generalModal('locationList', {},{modalClass:'large'})
+    $(".locationList div:first-child").toggleClass('active',true)
+    SemanticModal.generalModal('locationList',null,{modalClass:'large'
+      ,postRender:()->
+        $(".locationList div:first-child").toggleClass('active',false)
+    })
 
+  'click .card-detail':(evt,temp)->
+    SemanticModal.generalModal('locationDetail',evt.target.id,{modalClass:'medium'})
 
 
 

@@ -1,6 +1,6 @@
 getLocationList=(args...)->
   query=args[0] or {}
-  res=census.find(query).map (doc)->_.extend(doc.properties,_.pick(doc,'_id'))
+  res=census.find(query).map (doc)->doc.properties
   res
 
 getDebouncedLocationList=_.debounce((query,rVar)->
@@ -8,7 +8,6 @@ getDebouncedLocationList=_.debounce((query,rVar)->
   rVar.set(res)
 ,300
 )
-
 
 Template.locationList.created=->
   @locations=new ReactiveVar(getLocationList())
@@ -27,7 +26,7 @@ Template.locationList.events
 
 Template.locationItem.events
   'click .card-detail':(evt,temp)->
-    SemanticModal.generalModal('locationDetail',temp.data._id,{modalClass:'large'})
+    SemanticModal.generalModal('locationDetail',temp.data.id(),{modalClass:'medium'})
 
 
 
